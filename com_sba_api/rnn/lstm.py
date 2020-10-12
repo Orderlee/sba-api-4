@@ -42,7 +42,7 @@ class Training:
             batch_size = batch_size,
             verbose = 2
         )
-        print(f'Test performance: accuracy={0}, loss={1}'.format(acc,loss))
+        print('Test performance: accuracy={0}, loss={1}'.format(acc,loss))
 
 t = Training()
 t.run()
