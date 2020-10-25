@@ -8,20 +8,27 @@ from com_sba_api.user.api import User, Users
 from flask_cors import CORS
 
 
+print('========== url ==========')
+
 app = Flask(__name__)
 CORS(app)
-print('========== url ==========')
+app.register_blueprint(user)
+
 print(url)
 app.config['SQLALCHEMY_DATABASE_URI'] = url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 api = Api(app)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
+# @app.before_first_request
+# def create_tables():
+#     db.create_all()
+
+# with app.app_context():
+#     db.create_all()
 
 initialize_routes(api)
 
-with app.app_context():
-    db.create_all()
+# @app.route('/api/test')
+# def test():
+#     return{'test':'SUCCESS'}
