@@ -6,7 +6,7 @@ from com_sba_api.user.dto import UserDto, UserVo
 import json
 from flask import jsonify
 
-parser = reqparse.RequestParser
+parser = reqparse.RequestParser()
 parser.add_argument('userid',type=str, required=True,
 help='This field should be a userid')
 parser.add_argument('password',type=str, required=True,
